@@ -36,4 +36,4 @@ while not game_over:
         print("you win")
 
 
-print("Congratulations")
+print("congratulations for reaching the step 1")
