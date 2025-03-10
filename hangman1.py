@@ -55,6 +55,7 @@ stages =  ['''
       |
 =========''']
 
+
 lives = 6
 word_list = ["aardvark","baboon", "camel"]
 computer_choice = random.choice(word_list)
