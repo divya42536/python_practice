@@ -1,6 +1,61 @@
 
 import random
+import hangman_art
+import hangman_words
+import hangman_words
 
+stages =  ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''','''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''']
+
+lives = 6
 word_list = ["aardvark","baboon", "camel"]
 computer_choice = random.choice(word_list)
 print(computer_choice)
@@ -15,10 +70,12 @@ print(place_holder)
 
 game_over = False
 correct_letters = []
-while not game_over:
-    guess = input( "are you ready with your guess? enter the first letter of the word:\n" ).lower()
-    display =" "
 
+while not game_over:
+
+    guess = input( "are you ready with your guess? enter the first letter of the word:\n" ).lower()
+
+    display =" "
 
     for letter in computer_choice:
         if letter == guess:
@@ -36,4 +93,12 @@ while not game_over:
         print("you win")
 
 
-print("congratulations for reaching the step 1")
+
+    if guess not in computer_choice:
+        lives = lives-1
+        print (stages[lives])
+        if lives==0:
+            game_over == True
+            print("you lose")
+
+
